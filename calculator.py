@@ -1,9 +1,14 @@
+import os
 import flet as ft
 from dataclasses import dataclass
 
 
 from controls import CalculatorAppBar
 from views import CobraView, SnakeView
+
+
+DEFAULT_FLET_PATH = ''
+DEFAULT_FLET_PORT = 8502
 
 
 @dataclass(frozen=True)
@@ -65,8 +70,14 @@ def main(page: ft.Page):
     page.go(page.route)
 
 
-ft.app(
-    target=main,
-    #view=ft.AppView.WEB_BROWSER,
-    assets_dir="assets",
-)
+
+if __name__ == "__main__":
+    flet_path = os.getenv("FLET_PATH", DEFAULT_FLET_PATH)
+    flet_port = int(os.getenv("FLET_PORT", DEFAULT_FLET_PORT))
+    ft.app(name=flet_path, target=main, view=None, port=flet_port, assets_dir="assets")
+
+#ft.app(
+#    target=main,
+#    view=ft.AppView.WEB_BROWSER,
+#    assets_dir="assets",
+#)
