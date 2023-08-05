@@ -13,7 +13,7 @@ class DiameterSelector(ft.UserControl):
     def build(self):
         return ft.Row(
             alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
-            width=550,
+            width=500,
             controls=[
                 ft.Text(
                     value="Rope diameter",
@@ -24,7 +24,7 @@ class DiameterSelector(ft.UserControl):
                     value=self.value,
                     content=ft.Row(
                         alignment=ft.MainAxisAlignment.SPACE_EVENLY,
-                        width=250,
+                        width=200,
                         controls=[
                             ft.Radio(value='4mm', label="4 mm"),
                             ft.Radio(value='2mm', label="2 mm"),

@@ -16,20 +16,20 @@ class BraceletSelector(ft.UserControl):
             weight=ft.FontWeight.BOLD,
         )
         self.field = ft.Text(
-            width=150,
+            width=100,
             size=18,
             weight=ft.FontWeight.BOLD,
             text_align=ft.TextAlign.CENTER,
         )
         self.field.value = str(self.length)
         return ft.Row(
-            width=550,
+            width=500,
             height=40,
             alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
             controls=[
                 self.label,
                 ft.Row(
-                    width=250,
+                    width=200,
                     controls = [
                         ft.IconButton(ft.icons.REMOVE, on_click=self.decrease),
                         self.field,

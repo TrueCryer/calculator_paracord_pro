@@ -38,7 +38,7 @@ def snake_ui():
     two_sides = Calculation("Two sides (L2):", model.l2)
 
     return ft.Column(
-        width=600,
+        width=550,
         expand=True,
         scroll=ft.ScrollMode.AUTO,
         horizontal_alignment=ft.CrossAxisAlignment.CENTER,

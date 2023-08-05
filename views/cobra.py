@@ -46,7 +46,7 @@ def cobra_ui():
 
 
     return ft.Column(
-        width=600,
+        width=550,
         horizontal_alignment=ft.CrossAxisAlignment.CENTER,
         expand=True,    
         scroll=ft.ScrollMode.AUTO,

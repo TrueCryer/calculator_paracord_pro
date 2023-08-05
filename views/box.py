@@ -38,7 +38,7 @@ def box_ui():
     color_2 = Calculation("Color 2 (L2):", model.l2)
     
     return ft.Column(
-        width=600,
+        width=550,
         horizontal_alignment=ft.CrossAxisAlignment.CENTER,
         expand=True,
         scroll=ft.ScrollMode.AUTO,

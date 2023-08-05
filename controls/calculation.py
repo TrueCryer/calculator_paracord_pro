@@ -24,14 +24,14 @@ class Calculation(ft.UserControl):
             text_align=ft.TextAlign.CENTER,
             size=18,
             weight=ft.FontWeight.BOLD,
-            width=200,
+            width=150,
         )
         return ft.Row(
             controls=[
                 self.label,
                 self.result,
             ],
-            width=550,
+            width=500,
             height=40,
             alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
         )

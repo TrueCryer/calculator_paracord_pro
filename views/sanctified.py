@@ -44,7 +44,7 @@ def sanctified_ui():
     outer_without_core = Calculation("Outer color without core strands (L4):", model.l4)
     
     return ft.Column(
-        width=600,
+        width=550,
         horizontal_alignment=ft.CrossAxisAlignment.CENTER,
         expand=True,
         scroll=ft.ScrollMode.AUTO,

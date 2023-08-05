@@ -38,7 +38,7 @@ def trilobite_ui():
     without_core = Calculation("Length exclude core strands (L2):", model.l2)
     
     return ft.Column(
-        width=600,
+        width=550,
         horizontal_alignment=ft.CrossAxisAlignment.CENTER,
         expand=True,
         scroll=ft.ScrollMode.AUTO,
