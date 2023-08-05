@@ -1,8 +1,16 @@
 from decimal import Decimal
 import flet as ft
 
-from controls import CalculatorAppBar, BraceletSelector, Calculation, DiameterSelector
+from controls import CalculatorAppBar, BraceletSelector, Calculation, DiameterSelector, disclaimer
 from models import FishtailModel
+
+
+DISCLAIMER = """
+The size is "net" and calculated for a classic "Fishtail" with two strands core. Please add some length for fasteners and other details.
+
+Calculations are valid both for metric and imperial units (cm and in).
+"""
+
 
 def fishtail_ui():
     model = FishtailModel(Decimal(15), '4mm')
@@ -40,6 +48,7 @@ def fishtail_ui():
             selector,
             with_core,
             without_core,
+            disclaimer(DISCLAIMER),
         ],
         
     )

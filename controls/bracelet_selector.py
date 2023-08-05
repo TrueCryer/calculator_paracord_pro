@@ -10,17 +10,34 @@ class BraceletSelector(ft.UserControl):
         self.set_length = set_length
 
     def build(self):
-        self.label = ft.Text("Bracelet length")
-        self.field = ft.TextField(on_change=self.update_length)
+        self.label = ft.Text(
+            value="Bracelet length",
+            size=18,
+            weight=ft.FontWeight.BOLD,
+        )
+        self.field = ft.Text(
+            width=150,
+            size=18,
+            weight=ft.FontWeight.BOLD,
+            text_align=ft.TextAlign.CENTER,
+        )
         self.field.value = str(self.length)
         return ft.Row(
+            width=550,
+            height=40,
+            alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
             controls=[
                 self.label,
-                ft.IconButton(ft.icons.REMOVE, on_click=self.decrease),
-                self.field,
-                ft.IconButton(ft.icons.ADD, on_click=self.increase),
+                ft.Row(
+                    width=250,
+                    controls = [
+                        ft.IconButton(ft.icons.REMOVE, on_click=self.decrease),
+                        self.field,
+                        ft.IconButton(ft.icons.ADD, on_click=self.increase),
+                    ]
+                )
             ],
-            alignment=ft.MainAxisAlignment.SPACE_AROUND
+            
         )
 
     def update_length(self, e: ft.ControlEvent):

@@ -1,8 +1,17 @@
 from decimal import Decimal
 import flet as ft
 
-from controls import CalculatorAppBar, BraceletSelector, Calculation, DiameterSelector
+from controls import CalculatorAppBar, BraceletSelector, Calculation, DiameterSelector, disclaimer
 from models import SanctifiedModel
+
+
+DISCLAIMER = """
+Calculations are made for 2 colored "Sanctified" with 4 strands core (2 with inner color, 2 with outer). If you want to make 2-strand core, just use calculations without core for another color.
+
+The size is "net", please add some length for fasteners and other details.
+
+Calculations are valid both for metric and imperial units (cm and in).
+"""
 
 
 def sanctified_ui():
@@ -47,6 +56,7 @@ def sanctified_ui():
             outer,
             inner_without_core,
             outer_without_core,
+            disclaimer(DISCLAIMER),
         ],
     )
 

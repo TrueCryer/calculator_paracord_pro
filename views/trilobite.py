@@ -1,8 +1,15 @@
 from decimal import Decimal
 import flet as ft
 
-from controls import CalculatorAppBar, BraceletSelector, Calculation, DiameterSelector
+from controls import CalculatorAppBar, BraceletSelector, Calculation, DiameterSelector, disclaimer
 from models import TrilobiteModel
+
+
+DISCLAIMER = """
+The size is "net" and calculated for a classic "Trilobite" with 4-strands core (1–2–1). Please add some length for fasteners and other details.
+
+Calculations are valid both for metric and imperial units (cm and in).
+"""
 
 
 def trilobite_ui():
@@ -41,6 +48,7 @@ def trilobite_ui():
             selector,
             with_core,
             without_core,
+            disclaimer(DISCLAIMER),
         ],
         
     )

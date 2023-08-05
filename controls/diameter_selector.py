@@ -11,22 +11,31 @@ class DiameterSelector(ft.UserControl):
 
 
     def build(self):
-        self.diameter = ft.Dropdown(
-            options=[
-                ft.dropdown.Option(key="4mm", text="4 mm"),
-                ft.dropdown.Option(key="2mm", text="2 mm"),
-            ],
-            on_change=self.on_change,
-        )
-        self.diameter.value = self.value
         return ft.Row(
+            alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
+            width=550,
             controls=[
-                ft.Text("Rope diameter"),
-                self.diameter,
+                ft.Text(
+                    value="Rope diameter",
+                    size=18,
+                    weight=ft.FontWeight.BOLD,
+                ),
+                ft.RadioGroup(
+                    value=self.value,
+                    content=ft.Row(
+                        alignment=ft.MainAxisAlignment.SPACE_EVENLY,
+                        width=250,
+                        controls=[
+                            ft.Radio(value='4mm', label="4 mm"),
+                            ft.Radio(value='2mm', label="2 mm"),
+                        ],
+                    ),
+                    on_change=self.on_change,
+                ),
             ],
-            alignment=ft.MainAxisAlignment.SPACE_AROUND,
+            
         )
     
     def on_change(self, e: ft.ControlEvent):
-        self.value = self.diameter.value
+        self.value = e.control.value
         self.callback_on_change(self.value)

@@ -1,8 +1,15 @@
 from decimal import Decimal
 import flet as ft
 
-from controls import CalculatorAppBar, BraceletSelector, Calculation, DiameterSelector
+from controls import CalculatorAppBar, BraceletSelector, Calculation, DiameterSelector, disclaimer
 from models import BoxModel
+
+
+DISCLAIMER = """
+Usually Box knot is made with two different color ropes, so length is calculated for each rope. If you want to make single-color Box, you have to use two calculated ropes with single color.
+
+Calculations are valid both for metric and imperial units (cm and in).
+"""
 
 
 def box_ui():
@@ -41,6 +48,7 @@ def box_ui():
             selector,
             color_1,
             color_2,
+            disclaimer(DISCLAIMER),
         ],
     )
 

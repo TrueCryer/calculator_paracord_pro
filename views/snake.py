@@ -1,8 +1,15 @@
 from decimal import Decimal
 import flet as ft
 
-from controls import CalculatorAppBar, BraceletSelector, Calculation, DiameterSelector
+from controls import CalculatorAppBar, BraceletSelector, Calculation, DiameterSelector, disclaimer
 from models import SnakeModel
+
+
+DISCLAIMER = """
+Calculations are made for simple Snake know without any inner core.
+
+Calculations are valid both for metric and imperial units (cm and in).
+"""
 
 
 def snake_ui():
@@ -41,6 +48,7 @@ def snake_ui():
             selector,
             one_side,
             two_sides,
+            disclaimer(DISCLAIMER),
         ],
     )
 

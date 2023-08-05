@@ -15,15 +15,23 @@ class Calculation(ft.UserControl):
         self.update()
 
     def build(self):
+        self.label = ft.Text(
+            self.__title,
+            size=18,
+        )
         self.result = ft.Text(
             str(self.__length),
+            text_align=ft.TextAlign.CENTER,
+            size=18,
+            weight=ft.FontWeight.BOLD,
             width=200,
         )
-        self.result.value = str(self.__length)
         return ft.Row(
             controls=[
-                ft.Text(self.__title),
+                self.label,
                 self.result,
             ],
+            width=550,
+            height=40,
             alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
         )

@@ -1,8 +1,17 @@
 from decimal import Decimal
 import flet as ft
 
-from controls import CalculatorAppBar, BraceletSelector, Calculation, DiameterSelector
+from controls import CalculatorAppBar, BraceletSelector, Calculation, DiameterSelector, disclaimer
 from models import CobraModel
+
+
+DISCLAIMER = """
+The size is "net" and calculated for a single "Cobra" with two strands core. Please add some length for fasteners and other details.
+
+L3 and L4 are provided for a 2-color \"Cobra\" with melted cords. 1-to-3 proportion provides the most comfortable sew.
+
+Calculations are valid both for metric and imperial units (cm and in).
+"""
 
 
 def cobra_ui():
@@ -35,6 +44,7 @@ def cobra_ui():
     one_side_with_3_4 = Calculation("One side with 3/4 core (L3):", model.l3)
     one_side_with_1_4 = Calculation("One side with 1/4 core (L4):", model.l4)
 
+
     return ft.Column(
         width=600,
         horizontal_alignment=ft.CrossAxisAlignment.CENTER,
@@ -48,6 +58,7 @@ def cobra_ui():
                 without_core_strands,
                 one_side_with_3_4,
                 one_side_with_1_4,
+                disclaimer(DISCLAIMER),
             ],
     )
 
