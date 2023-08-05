@@ -17,14 +17,14 @@ class Calculation(ft.UserControl):
     def build(self):
         self.label = ft.Text(
             self.__title,
-            size=18,
+            size=16,
         )
         self.result = ft.Text(
             str(self.__length),
             text_align=ft.TextAlign.CENTER,
-            size=18,
+            size=16,
             weight=ft.FontWeight.BOLD,
-            width=150,
+            width=100,
         )
         return ft.Row(
             controls=[

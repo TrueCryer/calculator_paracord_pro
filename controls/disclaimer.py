@@ -7,7 +7,7 @@ def disclaimer(content: str):
         controls=[
             ft.Text(
                 value=content,
-                size=18,
+                size=16,
                 italic=True,
             )
         ]

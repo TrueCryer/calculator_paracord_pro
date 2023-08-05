@@ -17,14 +17,14 @@ class DiameterSelector(ft.UserControl):
             controls=[
                 ft.Text(
                     value="Rope diameter",
-                    size=18,
+                    size=16,
                     weight=ft.FontWeight.BOLD,
                 ),
                 ft.RadioGroup(
                     value=self.value,
                     content=ft.Row(
                         alignment=ft.MainAxisAlignment.SPACE_EVENLY,
-                        width=200,
+                        width=150,
                         controls=[
                             ft.Radio(value='4mm', label="4 mm"),
                             ft.Radio(value='2mm', label="2 mm"),

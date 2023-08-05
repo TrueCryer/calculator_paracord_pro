@@ -12,12 +12,12 @@ class BraceletSelector(ft.UserControl):
     def build(self):
         self.label = ft.Text(
             value="Bracelet length",
-            size=18,
+            size=16,
             weight=ft.FontWeight.BOLD,
         )
         self.field = ft.Text(
-            width=100,
-            size=18,
+            width=50,
+            size=16,
             weight=ft.FontWeight.BOLD,
             text_align=ft.TextAlign.CENTER,
         )
@@ -29,7 +29,7 @@ class BraceletSelector(ft.UserControl):
             controls=[
                 self.label,
                 ft.Row(
-                    width=200,
+                    width=150,
                     controls = [
                         ft.IconButton(ft.icons.REMOVE, on_click=self.decrease),
                         self.field,
