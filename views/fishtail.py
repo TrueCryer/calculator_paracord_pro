@@ -2,15 +2,14 @@ from decimal import Decimal
 import flet as ft
 
 from controls import CalculatorAppBar, BraceletSelector, Calculation, DiameterSelector
-from models import SnakeModel
+from models import FishtailModel
 
+def fishtail_ui():
+    model = FishtailModel(Decimal(15), '4mm')
 
-def snake_ui():
-    model = SnakeModel(Decimal(15), '4mm')
-
-    def update_calculations():
-        one_side.set_lenght(model.l1)
-        two_sides.set_lenght(model.l2)
+    def update_calculations(self):
+        with_core.set_lenght(model.l1)
+        without_core.set_lenght(model.l2)
 
     def set_bracelet_length(length: Decimal):
         model.bracelet_length = length
@@ -21,36 +20,37 @@ def snake_ui():
         update_calculations()
 
     scheme = ft.Image(
-            src=f"/images/snake_scheme.png",
-            width=512,
-            fit=ft.ImageFit.CONTAIN,
-        )
+        src=f"/images/fishtail_scheme.png",
+        width=512,
+        fit=ft.ImageFit.CONTAIN,
+    )
     selector = BraceletSelector(model.bracelet_length, lambda x: set_bracelet_length(x))
     diameter = DiameterSelector(model.rope_diameter, set_rope_diameter)
-    one_side = Calculation("One side (L1):", model.l1)
-    two_sides = Calculation("Two sides (L2):", model.l2)
-
+    with_core = Calculation("Length include core strands (L1):", model.l1)
+    without_core = Calculation("Length exclude core strands (L2):", model.l2)
+    
     return ft.Column(
         width=600,
+        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
         expand=True,
         scroll=ft.ScrollMode.AUTO,
-        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
         controls=[
             scheme,
             diameter,
             selector,
-            one_side,
-            two_sides,
+            with_core,
+            without_core,
         ],
+        
     )
 
 
-class SnakeView(ft.View):
+class FishtailView(ft.View):
 
     def __init__(self, title: str, route: str):
         controls = [
             CalculatorAppBar(title),
-            snake_ui(),
+            fishtail_ui(),
         ]
         super().__init__(
             route=route,

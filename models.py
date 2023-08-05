@@ -112,7 +112,7 @@ class BoxModel(GenericModel):
     }
 
 
-class Sanctified(GenericModel):
+class SanctifiedModel(GenericModel):
     """ k1 - inner color
         k2 - outer color
         k3 - inner color without strands

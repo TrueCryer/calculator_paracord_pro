@@ -2,18 +2,15 @@ from decimal import Decimal
 import flet as ft
 
 from controls import CalculatorAppBar, BraceletSelector, Calculation, DiameterSelector
-from models import CobraModel
+from models import BoxModel
 
 
-def cobra_ui():
-
-    model = CobraModel(Decimal(15), '4mm')
+def box_ui():
+    model = BoxModel(Decimal(15), '4mm')
 
     def update_calculations():
-        full_length.set_lenght(model.l1)
-        without_core_strands.set_lenght(model.l2)
-        one_side_with_3_4.set_lenght(model.l3) 
-        one_side_with_1_4.set_lenght(model.l4)
+        color_1.set_lenght(model.l1)
+        color_2.set_lenght(model.l2)
 
     def set_bracelet_length(length: Decimal):
         model.bracelet_length = length
@@ -24,40 +21,36 @@ def cobra_ui():
         update_calculations()
 
     scheme = ft.Image(
-        src=f"/images/cobra_scheme.png",
+        src=f"/images/fishtail_scheme.png",
         width=512,
         fit=ft.ImageFit.CONTAIN,
     )
     selector = BraceletSelector(model.bracelet_length, lambda x: set_bracelet_length(x))
     diameter = DiameterSelector(model.rope_diameter, set_rope_diameter)
-    full_length = Calculation("Full length (L1):", model.l1)
-    without_core_strands = Calculation("Withou core strands (L2):", model.l2)
-    one_side_with_3_4 = Calculation("One side with 3/4 core (L3):", model.l3)
-    one_side_with_1_4 = Calculation("One side with 1/4 core (L4):", model.l4)
-
+    color_1 = Calculation("Color 1 (L1):", model.l1)
+    color_2 = Calculation("Color 2 (L2):", model.l2)
+    
     return ft.Column(
         width=600,
         horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-        expand=True,    
+        expand=True,
         scroll=ft.ScrollMode.AUTO,
-            controls=[
-                scheme,
-                diameter,
-                selector,
-                full_length,
-                without_core_strands,
-                one_side_with_3_4,
-                one_side_with_1_4,
-            ],
+        controls=[
+            scheme,
+            diameter,
+            selector,
+            color_1,
+            color_2,
+        ],
     )
 
 
-class CobraView(ft.View):
+class BoxView(ft.View):
 
     def __init__(self, title: str, route: str):
         controls = [
             CalculatorAppBar(title),
-            cobra_ui(),
+            box_ui(),
         ]
         super().__init__(
             route=route,

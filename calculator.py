@@ -4,7 +4,7 @@ from dataclasses import dataclass
 
 
 from controls import CalculatorAppBar
-from views import CobraView, SnakeView
+from views import CobraView, SnakeView, FishtailView, TrilobiteView, BoxView, SanctifiedView
 
 
 DEFAULT_FLET_PATH = ''
@@ -21,10 +21,10 @@ class MenuItem():
 MENU = (
     MenuItem(title="Cobra", route="/cobra", view=CobraView),
     MenuItem(title="Snake", route="/snake", view=SnakeView),
-    MenuItem(title="Fishtail", route="/fishtail", view=CobraView),
-    MenuItem(title="Trilobite", route="/trilobite", view=CobraView),
-    MenuItem(title="Box", route="/box", view=CobraView),
-    MenuItem(title="Sanctified", route="/sanctified", view=CobraView),
+    MenuItem(title="Fishtail", route="/fishtail", view=FishtailView),
+    MenuItem(title="Trilobite", route="/trilobite", view=TrilobiteView),
+    MenuItem(title="Box", route="/box", view=BoxView),
+    MenuItem(title="Sanctified", route="/sanctified", view=SanctifiedView),
 )
 
 

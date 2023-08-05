@@ -2,18 +2,15 @@ from decimal import Decimal
 import flet as ft
 
 from controls import CalculatorAppBar, BraceletSelector, Calculation, DiameterSelector
-from models import CobraModel
+from models import TrilobiteModel
 
 
-def cobra_ui():
-
-    model = CobraModel(Decimal(15), '4mm')
+def trilobite_ui():
+    model = TrilobiteModel(Decimal(15), '4mm')
 
     def update_calculations():
-        full_length.set_lenght(model.l1)
-        without_core_strands.set_lenght(model.l2)
-        one_side_with_3_4.set_lenght(model.l3) 
-        one_side_with_1_4.set_lenght(model.l4)
+        with_core.set_lenght(model.l1)
+        without_core.set_lenght(model.l2)
 
     def set_bracelet_length(length: Decimal):
         model.bracelet_length = length
@@ -24,40 +21,37 @@ def cobra_ui():
         update_calculations()
 
     scheme = ft.Image(
-        src=f"/images/cobra_scheme.png",
+        src=f"/images/trilobite_scheme.png",
         width=512,
         fit=ft.ImageFit.CONTAIN,
     )
     selector = BraceletSelector(model.bracelet_length, lambda x: set_bracelet_length(x))
     diameter = DiameterSelector(model.rope_diameter, set_rope_diameter)
-    full_length = Calculation("Full length (L1):", model.l1)
-    without_core_strands = Calculation("Withou core strands (L2):", model.l2)
-    one_side_with_3_4 = Calculation("One side with 3/4 core (L3):", model.l3)
-    one_side_with_1_4 = Calculation("One side with 1/4 core (L4):", model.l4)
-
+    with_core = Calculation("Length include core strands (L1):", model.l1)
+    without_core = Calculation("Length exclude core strands (L2):", model.l2)
+    
     return ft.Column(
         width=600,
         horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-        expand=True,    
+        expand=True,
         scroll=ft.ScrollMode.AUTO,
-            controls=[
-                scheme,
-                diameter,
-                selector,
-                full_length,
-                without_core_strands,
-                one_side_with_3_4,
-                one_side_with_1_4,
-            ],
+        controls=[
+            scheme,
+            diameter,
+            selector,
+            with_core,
+            without_core,
+        ],
+        
     )
 
 
-class CobraView(ft.View):
+class TrilobiteView(ft.View):
 
     def __init__(self, title: str, route: str):
         controls = [
             CalculatorAppBar(title),
-            cobra_ui(),
+            trilobite_ui(),
         ]
         super().__init__(
             route=route,
